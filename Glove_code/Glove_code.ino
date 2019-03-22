@@ -1,3 +1,7 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial BTserial(10, 11);
+
 const int flex_thumb = A0;
 const int flex_index = A1;
 const int flex_middle = A2;
@@ -19,6 +23,7 @@ const float R_DIV = 3000;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  BTserial.begin(9600);
   pinMode(flex_thumb, INPUT);
   pinMode(flex_index, INPUT);
   pinMode(flex_middle, INPUT);
@@ -38,7 +43,7 @@ void loop() {
   int flexADC_ring = analogRead(flex_ring);
   int flexADC_little = analogRead(flex_little);
   
-  if (flexADC_thumb >= 796.0)
+  if (flexADC_thumb >= 798.0)
   {
     thumb = true;
   }
@@ -54,14 +59,27 @@ void loop() {
   {
     ring = true;
   }
-  if (flexADC_little >= 220.0)
+  if (flexADC_little >= 210.0)
   {
     little = true;
   }
 
-  /*if (new_sign)
+  if (new_sign)
   {
-    // all the signs come here
+    if (thumb && !index && !middle && ring && little)
+    {
+      Serial.println("My");
+    }
+    
+    if (!thumb && index && middle && ring && !little)
+    {
+      Serial.println("name");
+    }
+    
+    if (thumb && index && middle && ring && little)
+    {
+    
+    }
   }
 
   else 
@@ -71,9 +89,8 @@ void loop() {
       new_sign = true;
     }
   }
-*/
 
-  Serial.println("thumb " + String(flexADC_little));
+  Serial.println(String(flexADC_thumb) + ", "String(flexADC_index) + ", "String(flexADC_middle) + ", "String(flexADC_ring) + ", "String(flexADC_little));
   thumb = false;
   index = false;
   middle = false;
