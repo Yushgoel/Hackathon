@@ -38,23 +38,23 @@ void loop() {
   int flexADC_ring = analogRead(flex_ring);
   int flexADC_little = analogRead(flex_little);
   
-  if (flexADC_thumb >= 32.0)
+  if (flexADC_thumb >= 796.0)
   {
     thumb = true;
   }
-  if (flexADC_index >= 32.0)
+  if (flexADC_index >= 869.0)
   {
     index = true;
   }
-  if (flexADC_middle >= 32.0)
+  if (flexADC_middle >= 798.0)
   {
     middle = true;
   }
-  if (flexADC_ring >= 32.0)
+  if (flexADC_ring >= 338.0)
   {
     ring = true;
   }
-  if (flexADC_little >= 32.0)
+  if (flexADC_little >= 220.0)
   {
     little = true;
   }
@@ -73,7 +73,7 @@ void loop() {
   }
 */
 
-  Serial.println("thumb " + flexADC_thumb);
+  Serial.println("thumb " + String(flexADC_little));
   thumb = false;
   index = false;
   middle = false;
