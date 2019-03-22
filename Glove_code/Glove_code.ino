@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial BTserial(10, 11);
+SoftwareSerial BT(10, 11);
 
 const int flex_thumb = A0;
 const int flex_index = A1;
@@ -23,7 +23,7 @@ const float R_DIV = 3000;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  BTserial.begin(9600);
+  BT.begin(9600);
   pinMode(flex_thumb, INPUT);
   pinMode(flex_index, INPUT);
   pinMode(flex_middle, INPUT);
@@ -43,11 +43,11 @@ void loop() {
   int flexADC_ring = analogRead(flex_ring);
   int flexADC_little = analogRead(flex_little);
   
-  if (flexADC_thumb >= 798.0)
+  if (flexADC_thumb >= 932.0)
   {
     thumb = true;
   }
-  if (flexADC_index >= 869.0)
+  if (flexADC_index >= 870.0)
   {
     index = true;
   }
@@ -55,7 +55,7 @@ void loop() {
   {
     middle = true;
   }
-  if (flexADC_ring >= 338.0)
+  if (flexADC_ring >= 275.0)
   {
     ring = true;
   }
@@ -69,17 +69,90 @@ void loop() {
     if (thumb && !index && !middle && ring && little)
     {
       Serial.println("My");
+      BT.print("1"); // code for 'my'
+      new_sign = false;
     }
     
     if (!thumb && index && middle && ring && !little)
     {
       Serial.println("name");
+      BT.print("2"); // code for 'name'
+      new_sign = false;
     }
     
+    if (!thumb && !index && !middle && ring && little)
+    {
+      Serial.println("is");
+      BT.print("3"); // code for 'is'
+      new_sign = false;
+    }
+    if (thumb && !index && !middle && !ring && !little)
+    {
+      Serial.println("am");
+      BT.print("4"); // code for 'am'
+      new_sign = false;
+    }
+    if (!thumb && index && middle && ring && little)
+    {
+      Serial.println("good");
+      BT.print("5"); // code for 'good'
+      new_sign = false;
+    }
+    if (thumb && !index && middle && !ring && !little)
+    {
+      Serial.println("hi");
+      BT.print("6"); // code for 'hi'
+      new_sign = false;
+    }
+    if (thumb && index && middle && ring && !little)
+    {
+      Serial.println("how");
+      BT.print("7"); // code for 'how'
+      new_sign = false;
+    }
     if (thumb && index && middle && ring && little)
     {
-    
+      Serial.println("are");
+      BT.print("8"); // code for 'are'
+      new_sign = false;
     }
+    if (thumb && !index && middle && ring && little)
+    {
+      Serial.println("you");
+      BT.print("9"); // code for 'you'
+      new_sign = false;
+    }
+    if (thumb && index && middle && !ring && !little)
+    {
+      Serial.println("I");
+      BT.print("a"); // code for 'I'
+      new_sign = false;
+    }
+    if (!thumb && !index && middle && ring && !little)
+    {
+      Serial.println("love");
+      BT.print("b"); // code for 'love'
+      new_sign = false;
+    }
+    if (thumb && index && !middle && !ring && little)
+    {
+      Serial.println("sleep");
+      BT.print("c"); // code for 'sleep'
+      new_sign = false;
+    }
+    if (thumb && index && !middle && !ring && !little)
+    {
+      Serial.println("hate");
+      BT.print("d"); // code for 'hate'
+      new_sign = false;
+    }
+    if (thumb && !index && middle && ring && !little)
+    {
+      Serial.println("me");
+      BT.print("e"); // code for 'me'
+      new_sign = false;
+    }
+    
   }
 
   else 
@@ -90,7 +163,7 @@ void loop() {
     }
   }
 
-  Serial.println(String(flexADC_thumb) + ", "String(flexADC_index) + ", "String(flexADC_middle) + ", "String(flexADC_ring) + ", "String(flexADC_little));
+  /Serial.println(String(flexADC_thumb) + ", " + String(flexADC_index) + ", " + String(flexADC_middle) + ", " + String(flexADC_ring) + ", " + String(flexADC_little));
   thumb = false;
   index = false;
   middle = false;
