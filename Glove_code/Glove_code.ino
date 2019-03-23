@@ -43,7 +43,7 @@ void loop() {
   int flexADC_ring = analogRead(flex_ring);
   int flexADC_little = analogRead(flex_little);
   
-  if (flexADC_thumb >= 935.0)
+  if (flexADC_thumb >= 930.0)
   {
     thumb = true;
   }
@@ -140,7 +140,7 @@ void loop() {
       BT.print("c"); // code for 'sleep'
       new_sign = false;
     }
-    if (thumb && index && !middle && !ring && !little)
+    if (!thumb && !index && middle && !ring && !little)
     {
       Serial.println("hate");
       BT.print("d"); // code for 'hate'
@@ -160,8 +160,8 @@ void loop() {
     }
     if (thumb && index && !middle && !ring && !little)
     {
-      Serial.println("friend");
-      BT.print("f"); // code for 'me'
+      Serial.println("Thank");
+      BT.print("g"); // code for 'me'
       new_sign = false;
     }
 
