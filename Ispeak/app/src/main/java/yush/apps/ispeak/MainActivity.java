@@ -138,59 +138,78 @@ public class MainActivity extends AppCompatActivity {
                             char a = (char) b;
                             if (a == '1') {
                                 //Log.d("Spica", " data byte " + a);
+                                message.setText("MY");
                                 mtts.speak("My", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '2')
                             {
+                                message.setText("NAME");
                                 mtts.speak("name", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '3')
                             {
+                                message.setText("IS");
                                 mtts.speak("is", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '4')
                             {
+                                message.setText("AM");
                                 mtts.speak("am", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '5')
                             {
+                                message.setText("GOOD");
                                 mtts.speak("good", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '6')
                             {
+                                message.setText("HI");
                                 mtts.speak("hi", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '7')
                             {
+                                message.setText("HOW");
                                 mtts.speak("how", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '8')
                             {
+                                message.setText("ARE");
                                 mtts.speak("are", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == '9')
                             {
+                                message.setText("YOU");
                                 mtts.speak("you", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == 'a')
                             {
+                                message.setText("I");
                                 mtts.speak("I", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == 'b')
                             {
+                                message.setText("LOVE");
                                 mtts.speak("love", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == 'c')
                             {
+                                message.setText("SLEEP");
                                 mtts.speak("sleep", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == 'd')
                             {
+                                message.setText("HATE");
                                 mtts.speak("hate", TextToSpeech.QUEUE_FLUSH, null);
                             }
                             else if (a == 'e')
                             {
+                                message.setText("ME");
                                 mtts.speak("me", TextToSpeech.QUEUE_FLUSH, null);
+                            }
+                            else if (a == 'f')
+                            {
+                                message.setText("FRIEND");
+                                mtts.speak("friend", TextToSpeech.QUEUE_FLUSH, null);
                             }
                         }
 

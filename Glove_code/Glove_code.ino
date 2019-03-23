@@ -47,7 +47,7 @@ void loop() {
   {
     thumb = true;
   }
-  if (flexADC_index >= 870.0)
+  if (flexADC_index >= 875.0)
   {
     index = true;
   }
@@ -152,6 +152,14 @@ void loop() {
       BT.print("e"); // code for 'me'
       new_sign = false;
     }
+    if (thumb && !index && !middle && ring && !little)
+    {
+      Serial.println("friend");
+      BT.print("f"); // code for 'me'
+      new_sign = false;
+    }
+
+    Serial.println("new word");
     
   }
 
@@ -163,7 +171,7 @@ void loop() {
     }
   }
 
-  /Serial.println(String(flexADC_thumb) + ", " + String(flexADC_index) + ", " + String(flexADC_middle) + ", " + String(flexADC_ring) + ", " + String(flexADC_little));
+  // Serial.println(String(flexADC_thumb) + ", " + String(flexADC_index) + ", " + String(flexADC_middle) + ", " + String(flexADC_ring) + ", " + String(flexADC_little));
   thumb = false;
   index = false;
   middle = false;
