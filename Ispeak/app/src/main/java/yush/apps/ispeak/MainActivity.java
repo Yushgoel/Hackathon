@@ -211,6 +211,10 @@ public class MainActivity extends AppCompatActivity {
                                 message.setText("FRIEND");
                                 mtts.speak("friend", TextToSpeech.QUEUE_FLUSH, null);
                             }
+                            else if (a == 'g'){
+                                message.setText("THANK");
+                                mtts.speak("Thank", TextToSpeech.QUEUE_FLUSH, null);
+                            }
                         }
 
                     }
